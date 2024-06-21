@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "."
+  title: "class2024-6-20"
   navbar:
     left:
       - href: index.qmd
