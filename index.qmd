@@ -1,0 +1,21 @@
+---
+title: "class2024-6-20"
+execute: 
+  echo: false 
+  message: false 
+  warning: false 
+---
+
+```{r}
+#| label: setup 
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(scales)
+
+usedata <- read_csv("auto_theft_chicago_2001-now.csv")
+
+usedata |> ggplot(aes(x = as.Date(Date), fill = Arrest)) + geom_bar(width = 1, stat = "count") + scale_x_date(breaks = date_breaks("years"),
+  labels = date_format("%y"), limits = c(as.Date("2001-01-01"), as.Date("2023-01-01"))) + scale_y_continuous(breaks = c(250,500,750,1000,1250)) + labs(title = "Auto Theft in Chicago from 2001 to Present", subtitle = "Most cases did not lead to arrests", x = "Year (starting in 2001)", y = "Number of Cases", caption = "Source: data.cityofchicago.org")
+```
+
